@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{ titulo }}</h2>
+        <h2>Mi saldo :{{ cantidad > 100 ? 'Es mayor a 100': 'Es menor a 100'}}</h2>
+        <br>
+        <!-- el v-bind se puede abreviar usando los : quedando :href  -->
+        <a v-bind:href="enlace">Ir al enlace</a>
+        <br>
+        <h2 v-if="estado">Cuenta Activa</h2>
+        <h2 v-else>Cuenta INACTIVA</h2>
+
+        <hr>
+        <h2 v-if="cantidad > 500">Cantidad: {{cantidad}}</h2>
+        <h2 v-else-if="cantidad <= 500 && cantidad > 0">
+            Cantidad:
+            <span style="color:red">{{cantidad}}</span>
+        </h2>
+        <h2></h2>
+
+    </div>
+
+
+
+    <!-- este main debe estar antes el mount -->
+    <script src="main.js"></script>   
+    <script>                                   // el #app es el id que está en el body
+        const mountedApp = app.mount('#app'); // el app viene del objeto declaro en main.js
+    </script>
+</body>
+</html>
